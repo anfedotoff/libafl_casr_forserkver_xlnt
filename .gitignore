@@ -4,3 +4,6 @@ Cargo.lock
 AFLplusplus
 xlnt
 *.swp
+forkserver_simple_xlnt_casr
+.cur_*
+crashes
