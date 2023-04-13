@@ -1,0 +1,22 @@
+[package]
+name = "forkserver_simple_xlnt_casr"
+version = "0.1.0"
+authors = ["Andrey Fedotov  <fedotoff@ispras.ru>"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+lto = true
+codegen-units = 1
+opt-level = 3
+
+[dependencies]
+libafl = { git = "https://github.com/AFLplusplus/LibAFL.git", features = ["casr", "derive"] }
+clap = { version = "4.0", features = ["derive"] }
+nix = "0.26"
+log = "0.4"
