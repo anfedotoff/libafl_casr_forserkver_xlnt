@@ -17,6 +17,8 @@ opt-level = 3
 
 [dependencies]
 libafl = { git = "https://github.com/AFLplusplus/LibAFL.git", features = ["casr", "derive"] }
+libafl_bolts = { git = "https://github.com/AFLplusplus/LibAFL.git" }
+
 clap = { version = "4.0", features = ["derive"] }
 nix = "0.26"
 log = "0.4"

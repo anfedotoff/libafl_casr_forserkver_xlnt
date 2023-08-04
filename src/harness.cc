@@ -2,6 +2,7 @@
 #include <libstudxml/parser.hxx>
 #include <unistd.h>
 __AFL_FUZZ_INIT();
+
 int main(int argc, char **argv) {
     int len = __AFL_FUZZ_TESTCASE_LEN;
     unsigned char *buf = __AFL_FUZZ_TESTCASE_BUF;

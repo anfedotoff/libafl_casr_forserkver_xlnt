@@ -3,13 +3,6 @@ use std::path::PathBuf;
 
 use clap::{self, Parser};
 use libafl::{
-    bolts::{
-        current_nanos,
-        rands::StdRand,
-        shmem::{ShMem, ShMemProvider, UnixShMemProvider},
-        tuples::{tuple_list, MatchName, Merge},
-        AsMutSlice, Truncate, SimpleStderrLogger,
-    },
     corpus::{Corpus, InMemoryCorpus, OnDiskCorpus},
     events::SimpleEventManager,
     executors::{
@@ -27,14 +20,23 @@ use libafl::{
     stages::mutational::StdMutationalStage,
     state::{HasCorpus, HasMetadata, StdState},
 };
+
+use libafl_bolts::{
+    current_nanos,
+    rands::StdRand,
+    shmem::{ShMem, ShMemProvider, UnixShMemProvider},
+    tuples::{tuple_list, MatchName, Merge},
+    AsMutSlice, Truncate, SimpleStderrLogger,
+};
+
 use nix::sys::signal::Signal;
 
 /// The commandline args this fuzzer accepts
 #[derive(Debug, Parser)]
 #[command(
-    name = "forkserver_simple",
-    about = "This is a simple example fuzzer to fuzz a executable instrumented by afl-cc.",
-    author = "tokatoka <tokazerkje@outlook.com>"
+    name = "forkserver_simple_xlnt_casr",
+    about = "This is a simple example fuzzer to fuzz a executable instrumented by afl-cc with CASR observer",
+    author = "tokatoka <tokazerkje@outlook.com>, anfedotoff <fedotoff@ispras.ru>"
 )]
 struct Opt {
     #[arg(
